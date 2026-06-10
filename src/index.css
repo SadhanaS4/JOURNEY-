@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-charcoal text-cream font-sans overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    @apply bg-nexa/30 text-cream;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-2xl border border-white/[0.07] rounded-3xl;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-warm {
+    @apply bg-cream/[0.06] backdrop-blur-2xl border border-cream/[0.08] rounded-3xl;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-bright {
+    @apply bg-white/[0.06] backdrop-blur-2xl border border-white/[0.09] rounded-3xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  }
+
+  .premium-card {
+    @apply rounded-3xl overflow-hidden;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #FAFAF8 0%, rgba(250, 250, 248, 0.75) 100%);
+  }
+
+  .text-gradient-nexa {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #00B3A4 0%, #4ECDC4 100%);
+  }
+
+  .nexa-pass-card {
+    box-shadow:
+      0 24px 64px rgba(0, 0, 0, 0.35),
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .nexa-holo-border {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 179, 164, 0.45) 0%,
+      rgba(78, 205, 196, 0.25) 30%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(78, 205, 196, 0.25) 70%,
+      rgba(0, 179, 164, 0.45) 100%
+    );
+    background-size: 300% 300%;
+    animation: holo-shift 5s ease-in-out infinite;
+  }
+
+  .role-card-teal {
+    background: linear-gradient(145deg, rgba(0, 143, 132, 0.9) 0%, rgba(0, 179, 164, 0.75) 50%, rgba(78, 205, 196, 0.6) 100%);
+  }
+
+  .role-card-slate {
+    background: linear-gradient(145deg, rgba(28, 31, 38, 0.95) 0%, rgba(22, 24, 29, 0.9) 100%);
+  }
+
+  .role-card-charcoal {
+    background: linear-gradient(145deg, rgba(22, 24, 29, 0.98) 0%, rgba(15, 17, 21, 0.95) 100%);
+  }
+
+  .premium-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(78, 205, 196, 0.06) 50%,
+      transparent 60%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+  }
+
+  .premium-shimmer:hover::after {
+    transform: translateX(100%);
+  }
+
+  .holo-seal {
+    background: conic-gradient(
+      from 0deg,
+      rgba(0, 179, 164, 0.5),
+      rgba(78, 205, 196, 0.3),
+      rgba(255, 255, 255, 0.2),
+      rgba(0, 143, 132, 0.4),
+      rgba(0, 179, 164, 0.5)
+    );
+    padding: 2px;
+  }
+
+  .help-pulse {
+    box-shadow:
+      0 0 0 0 rgba(0, 179, 164, 0.35),
+      0 4px 24px rgba(0, 0, 0, 0.3);
+    animation: help-glow 3s ease-in-out infinite;
+  }
+}
+
+@keyframes holo-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.pass-shimmer {
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 65%
+  );
+  width: 50%;
+}
+
+@keyframes help-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(0, 179, 164, 0.3),
+      0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 0 8px rgba(0, 179, 164, 0),
+      0 4px 32px rgba(0, 179, 164, 0.15);
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
