@@ -1,6 +1,6 @@
 # JOURNEY — by NEXA
 
-Premium railway passenger experience. A world-class mobility product with dark enterprise aesthetics, glassmorphism, and real-time journey intelligence.
+Premium railway passenger experience.
 
 ## Screens
 
